@@ -125,11 +125,3 @@
 @mixin smooth-scroll {
   -webkit-overflow-scrolling: touch;
 }
-
-@mixin borderRadius {
-  border-radius: 3px;
-}
-
-@mixin timing {
-  transition: .3s;
-}

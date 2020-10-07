@@ -1,1 +1,27 @@
 // header styles
+.header {
+  padding: 59px 0 56px 0;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  z-index: 1;
+  border-bottom: 1px solid $borderColor;
+  &__content {
+    display: flex;
+    align-items: center;
+    
+  }
+}
+
+.logo {
+  max-width: 141px;
+}
+.nav {
+  position: relative;
+  &-list {
+    display: flex;
+    align-items: center;
+  }
+}
