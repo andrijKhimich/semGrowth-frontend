@@ -1,0 +1,58 @@
+.section-home {
+	padding-top: 141px;
+	background-color: rgba($blue, .5);
+	min-height: 100vh;
+	display: flex;
+	&__content {
+		position: relative;
+		height: 100%;
+	}
+	.container,
+	.row,
+	.col {
+		min-height: 100%;
+	}
+}
+.page-title {
+	position: absolute;
+	top: 42%;
+	left: 0;
+	transform: translate(0, -50%);
+	max-width: 1063px;
+	&__content {
+		max-width: 570px;
+		padding-left: 110px;
+		p {
+			font-weight: 600;
+			font-size: 16px;
+			line-height: 1.375em;
+      margin-bottom: 36px;
+		}
+	}
+}
+.scroll-down {
+	position: absolute;
+	bottom: 30%;
+	right: 10%;
+	background: transparent;
+
+	img {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 50%;
+		height: 50%;
+	}
+}
+.circular-text {
+	border-radius: 50%;
+	font-size: 12px;
+	font-weight: 500;
+	animation: rotated 60s infinite linear;
+}
+
+.circular-text span {
+	position: absolute;
+	transform-origin: top left;
+}

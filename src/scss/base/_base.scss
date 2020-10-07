@@ -50,8 +50,17 @@ h6 {
 	margin: 0;
 	font-weight: 600;
 }
+h1 {
+	margin: 33px 0 39px 0;
+	font-size: 96px;
+	line-height: 1em;
+	span {
+		background: linear-gradient(90deg, #006290 50%, #6be9fe 100%, #8aa9d6);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+}
 
-h1,
 h2 {
 	font-size: 30px;
 	line-height: 1.2em;
@@ -252,9 +261,62 @@ textarea {
 	position: relative;
 	overflow: hidden;
 	opacity: 1;
-	transition: opacity $duration $timing;
+  transition: opacity $duration $timing;
+  &::before, &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: $borderColor;
+    z-index: 1;
+  }
+  &::before {
+    left: 9%;
+  }
+  &::after {
+    right: 9%;
+  }
 }
 
-.main {
-  padding-top: 141px;
+.btn {
+	display: inline-block;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 1.125em;
+	padding: 22px 40px;
+	border-radius: 50px;
+	border: none;
+  border: 1px solid transparent;
+  transition: background-color $hover-duration $timing, color $hover-duration $timing, border-color $hover-duration $timing; 
+	&_primary {
+		background-color: $black;
+    color: $white;
+    border-color: $black;
+    &:hover {
+      background-color: transparent;
+      color: black;
+    }
+	}
+}
+
+.ellipse {
+  position: absolute;
+  opacity: 0;
+  transition: opacity $duration $timing;
+  &.active {
+    opacity: 1;
+  }
+  &._1 {
+    bottom: 15%;
+    left: -100px;
+  }
+    &._2 {
+    bottom: 17%;
+    right: 200px;
+  }
+    &._3 {
+    top: 0;
+    right: -200px;
+  }
 }

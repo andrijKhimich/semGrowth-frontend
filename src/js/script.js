@@ -1,123 +1,84 @@
-const humburger = $('.js-humburger');
-const headerMenu = $('.menu');
-const scrollBtn = $('.scroll-btn');
-const header = $('.header');
-const logoImg = $('.logo img');
+const body = document.getElementsByTagName("body")[0];
 
-function setInnerHeader() {
-  logoImg.attr("src", logoBlackUrl);
-  header.addClass('header_inner');
+// function to move bg ellipses
+function parallax(e) {
+	let moveX = (e.clientX * -0.3) / 8;
+	let moveY = (e.clientY * -0.3) / 8;
+	let elipse = document.getElementsByClassName("ellipse");
+	for (let i = 0; i < elipse.length; i++) {
+		elipse[i].style.transform = "translate(" + moveX + "px," + moveY + "px)";
+	}
 }
 
-
-function setHomeHeader() {
-  logoImg.attr("src", logoMainUrl);
-  header.removeClass('header_inner');
+function showEllipses() {
+	const elipses = document.getElementsByClassName("ellipse");
+	for (let i = 0; i < elipses.length; i++) {
+		elipses[i].classList.add("active");
+	}
 }
-// function showOnScroll(scrollValue) {
-//   $('.js-scroll').each(function () {
-//     let elem = $(this);
-//     let sectionPos = elem.offset().top;
-//     let windowPos = $(window).scrollTop() + $(window).height() / 1.2;
-//     if (sectionPos < windowPos) {
-//       elem.removeClass('js-fadeIn js-slideLeft js-slideRight js-slideTop');
-//     }
-//   });
-
-//   $('.js-active').each(function () {
-//     let item = $(this);
-//     let sectionPos = item.offset().top;
-//     let windowPos = $(window).scrollTop() + $(window).height() / 2.8;
-//     if (sectionPos < windowPos) {
-//       item.addClass('active');
-//     } else {
-//       item.removeClass('active');
-//     }
-//   });
-// }
-
-// function openMenu() {
-//   humburger.addClass('open');
-//   headerMenu.addClass('open');
-// }
-
-// function closeMenu() {
-//   humburger.removeClass('open');
-//   headerMenu.removeClass('open');
-// }
 
 function showContent() {
-  $('.main-wrapper').removeClass('js-fadeIn');
+	document.querySelector(".main-wrapper").classList.remove("js-fadeIn");
 }
 
-$(document).ready(function () {
-  // if ($('.inner-page').length > 0) {
-  //   setInnerHeader();
-  // } else {
-  //   setHomeHeader();
-  // }
-  showContent();
+function circularWords() {
+	const degreeToRadian = (angle) => {
+		return angle * (Math.PI / 180);
+	};
 
-  // humburger.click(function () {
-  //   if ($(this).hasClass('open')) {
-  //     closeMenu();
-  //   } else {
-  //     openMenu();
-  //   }
+	const radius = 60;
+	const diameter = radius * 2;
+
+	const circle = document.querySelector("#circular-text");
+	circle.style.width = `${diameter}px`;
+	circle.style.height = `${diameter}px`;
+
+	const text = circle.innerText;
+	const characters = text.split("");
+	circle.innerText = null;
+
+	const startAngle = -90;
+	const endAngle = 270;
+	const angleRange = endAngle - startAngle;
+
+	const deltaAngle = angleRange / characters.length;
+	let currentAngle = startAngle;
+
+	characters.forEach((char, index) => {
+		const charElement = document.createElement("span");
+		charElement.innerText = char;
+		const xPos = radius * (1 + Math.cos(degreeToRadian(currentAngle)));
+		const yPos = radius * (1 + Math.sin(degreeToRadian(currentAngle)));
+
+		const transform = `translate(${xPos}px, ${yPos}px)`;
+		const rotate = `rotate(${index * deltaAngle}deg)`;
+		charElement.style.transform = `${transform} ${rotate}`;
+
+		currentAngle += deltaAngle;
+		circle.appendChild(charElement);
+	});
+}
+
+document.addEventListener("DOMContentLoaded", function (e) {
+	body.addEventListener("mousemove", function (e) {
+		parallax(event);
+	});
+
+	showContent();
+
+	setTimeout(function () {
+		showEllipses();
+	}, 1000);
+
+	circularWords();
 });
 
+window.onload = function () {
+	// alert("Страница загружена");
+};
 
-// slow scroll to id
+// $(document).ready(function () {
 
-//   scrollBtn.click(function (e) {
-//     e.preventDefault();
-//     let link = $($(this).attr('href'))
-//     $('html, body').animate({
-//       scrollTop: link.offset().top
-//     }, 1000);
-//   });
-
-//   showOnScroll($(window).scrollTop());
-
-//   $(window).scroll(function () {
-//     const scrollValue = $(this).scrollTop();
-//     showOnScroll(scrollValue);
-//     scrollValue >= 1 ? closeMenu() : null;
-
-//     if (scrollValue > 1) {
-//       header.addClass('sticky');
-//     } else {
-//       header.removeClass('sticky');
-//       // logoImg.attr("src", logoColorUrl);
-//     }
-//   });
-
-$('.home-slider').slick({
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  autoplay: true,
-  dots: true,
-  arrows: false,
-  infinite: true,
-  fade: true,
-  speed: 1000,
-  cssEase: 'linear',
-  autoplaySpeed: 10000
-});
-$('.testimonials-slider__wrapper').slick({
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  autoplay: true,
-  dots: true,
-  arrows: false,
-  infinite: true,
-  fade: true,
-  speed: 1000,
-  cssEase: 'linear',
-  autoplaySpeed: 10000,
-  arrows: true,
-  prevArrow: $('.testimonials-slider_prev'),
-  nextArrow: $('.testimonials-slider_next')
-});
 // });
+
 svg4everybody();
