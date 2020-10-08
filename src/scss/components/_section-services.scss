@@ -1,0 +1,33 @@
+.section-services {
+  padding: 60px 5%;
+  @include d(1200) {
+    padding: 60px 0;
+  }
+}
+.services {
+  &-wrapper {
+    max-width: 1720px;
+    margin: 0 auto;
+    background-color: $blue;
+    padding: 150px 0 115px 0;
+    @include d(1200) {
+      margin: 0;
+    }
+  }
+  &-title {
+    max-width: 300px;
+  }
+  &-item {
+    max-width: 405px;
+    &__header {
+      margin-bottom: 20px;
+      img {
+        max-width: 40px;
+        margin-bottom: 15px;
+      }
+    }
+    .btn {
+      margin-top: 30px;
+    }
+  }
+}

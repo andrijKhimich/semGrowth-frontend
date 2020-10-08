@@ -1,0 +1,24 @@
+.section-investments {
+  padding: 70px 0;
+}
+
+.investments {
+  &-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0 -46px;
+    &__item {
+      max-width: 16%;
+      flex: 1 0 16%;
+      padding: 46px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        width: auto;
+      }
+    }
+  }
+}

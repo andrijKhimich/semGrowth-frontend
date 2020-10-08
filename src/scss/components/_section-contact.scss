@@ -1,0 +1,55 @@
+.section {
+	&-contact {
+		padding: 200px 0 60px 0;
+	}
+}
+.contact {
+	&__content {
+		max-width: 460px;
+		p {
+			margin-bottom: 20px;
+		}
+	}
+	&-phone {
+		color: $pink;
+		font-weight: 500;
+		margin: 20px 0;
+		img {
+			max-width: 15px;
+			margin-right: 15px;
+		}
+		a {
+			margin-left: 20px;
+			display: inline-flex;
+			align-items: center;
+		}
+	}
+	&__form {
+		background-color: $blue;
+		border-radius: 50px;
+		max-width: 590px;
+		padding: 70px 55px 80px 55px;
+	}
+}
+.contact-form {
+	position: relative;
+	h4,
+	.title-4 {
+		color: $pink;
+		margin-bottom: 50px;
+	}
+	&__box {
+		position: relative;
+		margin-bottom: 10px;
+		padding-bottom: 10px;
+	}
+	&__footer {
+		display: flex;
+		align-items: center;
+		img {
+			max-width: 93px;
+			margin-left: 60px;
+			mix-blend-mode: darken;
+		}
+	}
+}

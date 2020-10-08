@@ -1,1 +1,30 @@
 // footer styles
+.footer {
+	background-color: $black;
+	color: $white;
+	padding-bottom: 60px;
+	&-row {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 60px 0 47px;
+		border-bottom: 1px solid $borderColor;
+	}
+	&-copyright {
+		font-size: 11px;
+	}
+}
+.social-list {
+	display: flex;
+  align-items: center;
+  justify-content: center;
+	&__item {
+		&:not(:last-child) {
+			margin-right: 28px;
+		}
+  }
+  &__link {
+    display: flex;
+    align-items: center;
+  }
+}

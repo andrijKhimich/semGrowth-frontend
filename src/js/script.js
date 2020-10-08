@@ -2,12 +2,23 @@ const body = document.getElementsByTagName("body")[0];
 
 // function to move bg ellipses
 function parallax(e) {
+  const n = 3;
 	let moveX = (e.clientX * -0.3) / 8;
 	let moveY = (e.clientY * -0.3) / 8;
 	let elipse = document.getElementsByClassName("ellipse");
-	for (let i = 0; i < elipse.length; i++) {
+  for (let i = 0; i < elipse.length; i++) {
 		elipse[i].style.transform = "translate(" + moveX + "px," + moveY + "px)";
 	}
+}
+
+function setSliderNavPosition() {
+	const sliderNav = document.querySelector(".testimonials-slider__nav");
+	const element = document.querySelector(".testimonials-slider__img");
+	const style = element.currentStyle || window.getComputedStyle(element);
+	const margin = parseFloat(style.marginLeft) + parseFloat(style.marginRight);
+  const width = element.offsetWidth; 
+  
+	sliderNav.style.left = width + margin + "px";
 }
 
 function showEllipses() {
@@ -71,6 +82,21 @@ document.addEventListener("DOMContentLoaded", function (e) {
 	}, 1000);
 
 	circularWords();
+
+	setSliderNavPosition();
+
+	$(".testimonials-slider").slick({
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		autoplay: false,
+		dots: false,
+		arrows: true,
+		infinite: true,
+		fade: true,
+		adaptiveHeight: true,
+		prevArrow: $(".arrow-btn_prev"),
+		nextArrow: $(".arrow-btn_next"),
+	});
 });
 
 window.onload = function () {

@@ -1,0 +1,12 @@
+.section-about {
+  padding: 250px 0 120px 0;
+}
+
+.about {
+  &__content {
+    max-width: 590px;
+  }
+  &__img {
+    max-width: 620px;
+  }
+}
