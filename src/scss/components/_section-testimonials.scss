@@ -1,82 +1,169 @@
 .section-testimonials {
-	padding: 112px 0 118px 0;
-	background-color: $grayLight;
+  padding: 112px 0 118px 0;
+  background-color: $grayLight;
+
+  @include d(1200) {
+    padding: 80px 0;
+  }
+
+  @include d(992) {
+    padding: 60px 0;
+  }
 }
+
 .testimonials {
-	&__content {
-		position: relative;
-	}
-	&-slider {
-		position: relative;
-		&__item {
-			display: flex;
-			align-items: center;
-		}
-		&__img {
-			max-width: 400px;
-			margin-right: 80px;
-			flex: 0 0 400px;
-		}
-		&__content {
-			flex: 0 0 720px;
-		}
-		&__header {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			margin-bottom: 70px;
-		}
-		&__title {
-			width: 50%;
-			font-size: 18px;
-		}
-		&__name {
-			line-height: 1.111em;
-			margin-bottom: 11px;
-		}
-		&__position {
-			color: $grayText;
-		}
-		&__logo {
-			max-width: 155px;
-		}
-		&__text {
-			p {
-				font-size: 24px;
-				font-weight: 600;
-				line-height: 1.083em;
-			}
+  &__content {
+    position: relative;
+  }
+
+  &-slider {
+    position: relative;
+
+    &__item {
+      display: flex;
+      align-items: center;
+
+      @include d(768) {
+        flex-direction: column;
+        padding: 0 2%;
+      }
     }
+
+    &__img {
+      max-width: 400px;
+      margin-right: 80px;
+      flex: 0 0 400px;
+
+      @include d(1500) {
+        margin-right: 40px;
+        max-width: 320px;
+        flex: 0 0 320px;
+      }
+
+      @include d(768) {
+        margin-bottom: 30px;
+        margin-right: 0;
+      }
+    }
+
+    &__content {
+      flex: 0 0 720px;
+
+      @include d(1500) {
+        flex: auto;
+      }
+    }
+
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 70px;
+
+      @include d(1500) {
+        margin-bottom: 40px;
+      }
+
+      @include d(768) {
+        margin-bottom: 25px;
+      }
+    }
+
+    &__title {
+      width: 50%;
+      font-size: 18px;
+
+      @include d(1200) {
+        font-size: 16px;
+      }
+    }
+
+    &__name {
+      line-height: 1.111em;
+      margin-bottom: 11px;
+
+      @include d(1200) {
+        margin-bottom: 5px;
+      }
+    }
+
+    &__position {
+      color: $grayText;
+    }
+
+    &__logo {
+      max-width: 155px;
+    }
+
+    &__text {
+      p {
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 1.083em;
+
+        @include d(1500) {
+          font-size: 22px;
+        }
+
+        @include d(1200) {
+          font-size: 18px;
+        }
+          @include d(768) {
+          font-size: 16px;
+        }
+      }
+    }
+
     &__nav {
       position: absolute;
       bottom: 0;
       z-index: 9999;
+
+      @include d(768) {
+        // display: none;
+        position: static;
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 20px;
+      }
     }
-	}
-}
-.arrow-btn {
-	background-color: transparent;
-	border: none;
-	padding: 0;
-	display: inline-flex;
-	&:first-child {
-    margin-right: 60px;
   }
-	&_next {
-		transform: scale(-1);
-	}
-	&:hover {
-		.arrow-icon {
-			fill: $pink;
-		}
-	}
 }
+
+.arrow-btn {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  display: inline-flex;
+
+  &:first-child {
+    margin-right: 60px;
+    @include d(1200) {
+      margin-right: 30px;
+    }
+      @include d(768) {
+      margin-right: 20px;
+    }
+  }
+
+  &_next {
+    transform: scale(-1);
+  }
+
+  &:hover {
+    .arrow-icon {
+      fill: $pink;
+    }
+  }
+}
+
 .arrow-icon {
-	max-width: 40px;
-	height: 44px;
-	fill: transparent;
-	stroke: $black;
-	stroke-width: 1px;
-	position: relative;
-	transition: fill $hover-duration $timing;
+  max-width: 40px;
+  height: 44px;
+  fill: transparent;
+  stroke: $black;
+  stroke-width: 1px;
+  position: relative;
+  transition: fill $hover-duration $timing;
 }

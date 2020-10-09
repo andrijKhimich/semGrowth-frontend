@@ -1,11 +1,42 @@
 .home-page {
-	h1,
-	.title-1 {
-		font-size: 120px;
-	}
-	.page-title {
-		p {
-			margin-bottom: 64px;
-		}
-	}
+
+  h1,
+  .title-1 {
+    font-size: 120px;
+
+    @include d(1500) {
+      font-size: 100px;
+    }
+
+    @include d(1199) {
+      font-size: 86px;
+    }
+
+    @include d(992) {
+      font-size: 70px;
+    }
+    
+    @include d(768) {
+      font-size: 60px;
+    }
+    
+    @include d(575) {
+      font-size: 40px;
+    }
+        @include d(380) {
+      font-size: 34px;
+    }
+  }
+
+  .page-title {
+    p {
+      margin-bottom: 64px;
+      @include d(992) {
+        margin-bottom: 40px;
+      }
+      @include d(768) {
+        margin-bottom: 25px;
+      }
+    }
+  }
 }

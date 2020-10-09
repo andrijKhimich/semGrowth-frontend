@@ -1,28 +1,58 @@
 // footer styles
 .footer {
-	background-color: $black;
-	color: $white;
-	padding-bottom: 60px;
-	&-row {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		padding: 60px 0 47px;
-		border-bottom: 1px solid $borderColor;
-	}
-	&-copyright {
-		font-size: 11px;
-	}
+  background-color: $black;
+  color: $white;
+  padding-bottom: 60px;
+
+  @include d(1200) {
+    padding-bottom: 40px;
+  }
+
+  @include d(992) {
+    padding-bottom: 20px;
+  }
+
+  &-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 0 47px;
+    border-bottom: 1px solid $grayLighter;
+
+    @include d(1200) {
+      padding: 40px 0 30px;
+    }
+
+    @include d(992) {
+      padding: 20px 0 25px;
+    }
+  }
+
+  &-copyright {
+    font-size: 11px;
+    padding-top: 30px;
+
+    @include d(1200) {
+      padding-top: 20px;
+    }
+
+    @include d(992) {
+      padding-top: 10px;
+    }
+  }
 }
+
 .social-list {
-	display: flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-	&__item {
-		&:not(:last-child) {
-			margin-right: 28px;
-		}
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 28px;
+    }
   }
+
   &__link {
     display: flex;
     align-items: center;

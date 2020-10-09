@@ -1,68 +1,217 @@
 // header styles
 .header {
-	padding: 54px 0 56px 0;
-	width: 100%;
-	position: absolute;
-	top: 0;
-	left: 0;
-	background-color: transparent;
-	z-index: 1;
-	border-bottom: 1px solid $borderColor;
-	&__content {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	}
+  padding: 54px 0 56px 0;
+
+  @include d(1500) {
+    padding: 30px 0;
+  }
+
+  @include d(768) {
+    padding: 20px 0;
+  }
+
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  z-index: 1;
+  border-bottom: 1px solid $borderColor;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 
 .logo {
-	max-width: 167px;
+  max-width: 167px;
+  position: relative;
+  z-index: 10;
+
+  @include d(575) {
+    max-width: 120px;
+  }
+    @include d(360) {
+    max-width: 100px;
+  }
 }
+
 .nav {
-	position: relative;
-	&-list {
-		display: flex;
-		align-items: center;
-		li {
-			&:not(:last-child) {
-				margin-right: 50px;
-			}
-			a {
-				padding: 0 10px;
-				position: relative;
-				&:hover {
-					color: $pink;
-					transition: color $hover-duration $timing;
-					&::before,
-					&::after {
-						width: 50%;
-					}
-				}
-				&::before,
-				&::after {
+  position: relative;
+
+  @include d(768) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    opacity: 0;
+    transition: opacity $hover-duration linear;
+    background-color: rgba($white, 0.97);
+  }
+
+  &-list {
+    display: flex;
+    align-items: center;
+
+    @include d(768) {
+      flex-direction: column;
+      transform: translate(0, -20px);
+      opacity: 0;
+      transition: transform $hover-duration linear,
+        opacity $hover-duration linear;
+    }
+
+    &.open {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+
+    li {
+      &:not(:last-child) {
+        margin-right: 50px;
+
+        @include d(992) {
+          margin-right: 30px;
+        }
+
+        @include d(768) {
+          margin-right: 0;
+          margin-bottom: 30px;
+        }
+      }
+
+      a {
+        padding: 0 10px;
+        position: relative;
+
+        @include d(992) {
+          font-size: 14px;
+        }
+
+        @include d(768) {
+          font-size: 22px;
+          font-weight: 500;
+          color: $pink;
+        }
+
+        &:hover {
+          color: $pink;
+          transition: color $hover-duration $timing;
+
+          &::before,
+          &::after {
+            width: 50%;
+          }
+        }
+
+        &::before,
+        &::after {
           content: "";
           position: absolute;
-					height: 1px;
-					width: 0;
-					bottom: 4px;
-					background-color: $pink;
-					transition: width $hover-duration $timing;
-				}
-				&::before {
-					left: 50%;
-				}
-				&::after {
-					right: 50%;
-				}
-			}
-		}
-	}
+          height: 1px;
+          width: 0;
+          bottom: 4px;
+          background-color: $pink;
+          transition: width $hover-duration $timing;
+        }
+
+        &::before {
+          left: 50%;
+        }
+
+        &::after {
+          right: 50%;
+        }
+      }
+    }
+  }
 }
+
 .phone {
   display: flex;
   align-items: center;
+  flex-wrap: nowrap;
+  @include d(992) {
+    font-size: 14px;
+  }
+
+  @include d(768) {
+    margin-right: 20px;
+    margin-left: auto;
+  }
+
+  @include d(575) {
+    font-size: 12px;
+    padding-left: 10px;
+    margin-right: 10px;
+  }
+
   img {
     width: 15px;
     margin-right: 12px;
+
+    @include d(575) {
+      width: 10px;
+      margin-right: 7px;
+    }
+  }
+}
+
+.humburger {
+  display: none;
+
+  @include d(768) {
+    display: inline-block;
+    position: relative;
+    z-index: 10;
+    width: 40px;
+    height: 20px;
+  }
+
+  &__item {
+    transition-duration: 0.5s;
+    position: absolute;
+    height: 4px;
+    width: 30px;
+    top: 50%;
+    margin-top: -2px;
+    left: 0;
+    background-color: $black;
+    border-radius: 3px;
+    transition: transform $hover-duration $timing,
+      background-color $hover-duration $timing;
+
+    &:first-child {
+      top: 0;
+      margin-top: 0;
+    }
+
+    &:last-child {
+      top: auto;
+      bottom: 0;
+      margin-top: 0;
+    }
+  }
+
+  &.open {
+    .humburger__item {
+      background-color: $pink;
+
+      &:first-child {
+        background-color: $pink;
+        transform: rotateZ(-45deg) scaleX(0.75) translate(-10px, -5px);
+      }
+
+      &:last-child {
+        background-color: $pink;
+        transform: rotateZ(45deg) scaleX(0.75) translate(-10px, 5px);
+      }
+    }
   }
 }

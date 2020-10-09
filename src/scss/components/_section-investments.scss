@@ -9,13 +9,22 @@
     justify-content: space-between;
     flex-wrap: wrap;
     margin: 0 -46px;
+
+    @include d(1500) {
+      margin: 0 -20px;
+    }
+
     &__item {
-      max-width: 16%;
-      flex: 1 0 16%;
+      flex: 0 0 16%;
       padding: 46px;
       display: flex;
       align-items: center;
       justify-content: center;
+
+      @include d(1500) {
+        padding: 20px;
+      }
+
       img {
         width: auto;
       }
