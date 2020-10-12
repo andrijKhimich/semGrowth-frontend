@@ -1,0 +1,56 @@
+.section-firm {
+  padding: 20px 0 100px;
+
+  @include d(1500) {
+    padding: 20px 0 80px;
+  }
+
+  @include d(1200) {
+    padding: 20px 0 60px;
+  }
+
+  @include d(992) {
+    padding: 20px 0 40px;
+  }
+
+  .title-2,
+  & h2 {
+    margin-bottom: 80px;
+  }
+
+  @include d(1200) {
+    margin-bottom: 60px;
+  }
+
+  @include d(992) {
+    margin-bottom: 40px;
+  }
+}
+
+.firm {
+  &-box {
+    max-width: 230px;
+
+    @include d(768) {
+      margin-bottom: 40px;
+    }
+
+    &__title {
+      margin-bottom: 20px;
+
+      @include d(768) {
+        margin-bottom: 10px;
+      }
+
+      img {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 20px;
+
+        @include d(768) {
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+}

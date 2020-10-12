@@ -1,0 +1,57 @@
+.section-specialties {
+  padding: 180px 0;
+  @include d(1500) {
+    padding: 120px 0;
+  }
+  @include d(1200) {
+    padding: 100px 0;
+  }
+  @include d(992) {
+    padding: 60px 0 0 0;
+  }
+}
+
+.specialties {
+  &__title {
+    @include d(992) {
+      margin-bottom: 60px;
+    }
+  }
+  &-list {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 0 -15px;
+    &__item {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: 33.333%;
+      padding: 0 15px;
+      margin-bottom: 80px;
+      @include d(1500) {
+        margin-bottom: 60px;
+      }
+      @include d(1200) {
+        margin-bottom: 40px;
+      }
+      @include d(575) {
+        width: 50%;
+      }
+      @include d(400) {
+        width: 100%;
+      }
+      img {
+        height: 50px;
+        flex: 0 0 50px;
+        margin-right: 20px;
+      }
+      .title-6, & h6 {
+        text-transform: uppercase;
+        word-wrap: wrap;
+      }
+    }
+  }
+}

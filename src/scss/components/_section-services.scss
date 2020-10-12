@@ -17,17 +17,18 @@
     background-color: $blue;
     padding: 150px 0 115px 0;
 
-    @include d(1200) {
+    @include d(1500) {
       margin: 0;
       padding: 80px 0;
     }
 
-    @include d(992) {
-      padding: 60px 0 0 0;
+    @include d(1200) {
+      margin: 0;
+      padding: 60px 0;
     }
 
     @include d(768) {
-      padding: 50px 0;
+      padding: 50px 0 0 0;
     }
 
     .title-4,
@@ -42,6 +43,9 @@
 
     @include d(992) {
       margin-bottom: 50px;
+      @include d(768) {
+        margin-bottom: 30px;
+      }
     }
 
   }
