@@ -10,7 +10,7 @@
   }
 
   @include d(992) {
-    padding: 60px 0;
+    padding: 60px 0 0 0;
   }
 }
 
@@ -98,6 +98,10 @@
   &__img {
     max-width: 540px;
     margin: 0 auto;
+
+    @include d(768) {
+      max-width: 340px;
+    }
   }
 
   &-row_bottom {

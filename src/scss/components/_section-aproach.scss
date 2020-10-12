@@ -10,13 +10,17 @@
   }
 
   @include d(768) {
-    padding: 60px 0;
+    padding: 60px 0 0 0;
   }
 }
 
 .aproach {
   &__img {
     max-width: 607px;
+    @include d(768){
+      max-width: 320px;
+      margin: 0 auto;
+    }
   }
 
   &__content {
@@ -123,7 +127,7 @@
   }
 
   @include d(768) {
-    padding: 60px 0;
+    padding: 60px 0 0 0;
   }
 
   .title-2,

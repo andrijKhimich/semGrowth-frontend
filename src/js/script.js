@@ -194,11 +194,13 @@ $(document).ready(function () {
       1200
     );
   });
-  
+
+  initPartnersSlider();
+
   $(window).scroll(function () {
     const scrollValue = $(this).scrollTop();
     showOnScroll(scrollValue);
-    scrollValue >= 1 ? closeMenu() : null;
+    // scrollValue >= 1 ? closeMenu() : null;
   });
 });
 
@@ -209,6 +211,41 @@ function showOnScroll(scrollValue) {
     let windowPos = $(window).scrollTop() + $(window).height() / 1.2;
     if (sectionPos < windowPos) {
       elem.removeClass("js-fadeIn js-slideLeft js-slideRight js-slideTop");
+    }
+  });
+}
+
+function initPartnersSlider() {
+  let slider = $(".investments-list");
+  $(window).on("load resize", function () {
+    if ($(window).width() > 992 && $(".investments-list").length > 0) {
+      if (slider.hasClass("slick-initialized")) {
+        slider.slick("unslick");
+      }
+      return;
+    }
+    if (!slider.hasClass("slick-initialized")) {
+      return slider.slick({
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        autoplay: false,
+        dots: false,
+        arrows: false,
+        infinite: true,
+        responsive: [{
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 3,
+            },
+          },
+          {
+            breakpoint: 420,
+            settings: {
+              slidesToShow: 2,
+            },
+          },
+        ],
+      });
     }
   });
 }

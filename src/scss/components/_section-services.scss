@@ -4,6 +4,10 @@
   @include d(1200) {
     padding: 60px 0;
   }
+
+  @include d(992) {
+    padding: 60px 0 0 0;
+  }
 }
 
 .services {
@@ -19,7 +23,7 @@
     }
 
     @include d(992) {
-      padding: 60px 0;
+      padding: 60px 0 0 0;
     }
 
     @include d(768) {

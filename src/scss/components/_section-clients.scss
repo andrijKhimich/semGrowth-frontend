@@ -57,7 +57,12 @@
     &__item {
       max-width: 20%;
       padding: 20px;
-
+      img {
+        @include d(575) {
+          width: auto;
+          margin: 0 auto;
+        }
+      }
       @include d(992) {
         padding: 10px;
       }
