@@ -89,6 +89,9 @@
   font-size: 12px;
   font-weight: 500;
   animation: rotated 60s infinite linear;
+  @include d(768) {
+    display: none;
+  }
 }
 
 .circular-text span {

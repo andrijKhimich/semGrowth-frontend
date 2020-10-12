@@ -15,15 +15,16 @@
     @include d(992) {
       font-size: 70px;
     }
-    
+
     @include d(768) {
       font-size: 60px;
     }
-    
+
     @include d(575) {
       font-size: 40px;
     }
-        @include d(380) {
+
+    @include d(380) {
       font-size: 34px;
     }
   }
@@ -31,9 +32,11 @@
   .page-title {
     p {
       margin-bottom: 64px;
+
       @include d(992) {
         margin-bottom: 40px;
       }
+
       @include d(768) {
         margin-bottom: 25px;
       }

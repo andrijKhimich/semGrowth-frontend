@@ -4,8 +4,10 @@ const nav = document.querySelector(".nav");
 const navigationList = document.querySelector(".nav-list");
 const humburger = document.querySelector(".humburger");
 const ctaWords = document.querySelector("#ctaWords");
-const headerWords = document.querySelector("#headerWords");
+const headerWords = document.querySelector(".js-header-words");
+const sliderNav = document.querySelector(".testimonials-slider__nav");
 
+//  console.log(sliderNav.length);
 // function to move bg ellipses
 function parallax(e) {
   const n = 3;
@@ -19,7 +21,7 @@ function parallax(e) {
 
 // set position to the slider navigation buttons
 function setSliderNavPosition() {
-  const sliderNav = document.querySelector(".testimonials-slider__nav");
+
   const element = document.querySelector(".testimonials-slider__img");
   const style = element.currentStyle || window.getComputedStyle(element);
   const margin = parseFloat(style.marginLeft) + parseFloat(style.marginRight);
@@ -142,9 +144,13 @@ document.addEventListener("DOMContentLoaded", function (e) {
   });
 
   circularWords(ctaWords);
+  
   circularWords(headerWords);
-  setSliderNavPosition();
 
+  if (typeof sliderNav != "undefined" && sliderNav != null) {
+    // Exists.
+    setSliderNavPosition();
+  }
   $(".testimonials-slider").slick({
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -169,8 +175,10 @@ document.addEventListener("DOMContentLoaded", function (e) {
 });
 
 window.addEventListener("resize", function (event) {
-  // do stuff here
-  setSliderNavPosition();
+  if (typeof sliderNav != "undefined" && sliderNav != null) {
+    // Exists.
+    setSliderNavPosition();
+  }
 });
 
 window.onload = function () {
