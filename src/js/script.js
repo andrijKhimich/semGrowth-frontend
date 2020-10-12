@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
   });
 
   circularWords(ctaWords);
-  
+
   circularWords(headerWords);
 
   if (typeof sliderNav != "undefined" && sliderNav != null) {
@@ -185,6 +185,31 @@ window.onload = function () {
   // alert("Page is loaded!!!!!");
 };
 
-$(document).ready(function () {});
+$(document).ready(function () {
 
+  $('.scroll-down[href^="#"]').on("click", function () {
+    $("html, body").animate({
+        scrollTop: $($(this).attr("href")).offset().top,
+      },
+      1200
+    );
+  });
+  
+  $(window).scroll(function () {
+    const scrollValue = $(this).scrollTop();
+    showOnScroll(scrollValue);
+    scrollValue >= 1 ? closeMenu() : null;
+  });
+});
+
+function showOnScroll(scrollValue) {
+  $(".js-scroll").each(function () {
+    let elem = $(this);
+    let sectionPos = elem.offset().top;
+    let windowPos = $(window).scrollTop() + $(window).height() / 1.2;
+    if (sectionPos < windowPos) {
+      elem.removeClass("js-fadeIn js-slideLeft js-slideRight js-slideTop");
+    }
+  });
+}
 svg4everybody();
