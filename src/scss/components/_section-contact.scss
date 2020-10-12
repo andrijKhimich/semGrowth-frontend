@@ -16,6 +16,11 @@
 .contact {
   &__content {
     max-width: 460px;
+    .circular-text {
+      position: absolute;
+      right: 80px;
+      bottom: 60px;
+    }
     @include d(768) {
       margin-bottom: 60px;
       
