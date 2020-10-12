@@ -39,18 +39,27 @@
       }
       @include d(575) {
         width: 50%;
+        padding: 0 5px;
       }
-      @include d(400) {
+      @include d(340) {
         width: 100%;
       }
       img {
         height: 50px;
         flex: 0 0 50px;
         margin-right: 20px;
+        @include d(575) {
+          margin-right: 10px;
+          height: 40px;
+          flex: 0 0 30px;
+        }
       }
       .title-6, & h6 {
         text-transform: uppercase;
         word-wrap: wrap;
+        @include d(575) {
+          font-size: 14px;
+        }
       }
     }
   }

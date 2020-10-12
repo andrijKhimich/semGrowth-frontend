@@ -1,0 +1,48 @@
+.ppc-agency-page {
+  .page-title {
+    max-width: 850px;
+  }
+
+  .section-article {
+    &__row {
+      padding: 120px 0;
+      @include d(1200) {
+        padding: 80px 0;
+      }
+      @include d(992) {
+        padding: 60px 0;
+      }
+      &:nth-child(odd) {
+        background-color: $grayLight;
+      }
+
+      &:nth-child(odd) {
+        .col-md-7 {
+          order: 0;
+
+          @include d(768) {
+            order: 1;
+          }
+        }
+
+        .col-md-5 {
+          order: 1;
+
+          @include d(768) {
+            order: 0;
+          }
+        }
+      }
+    }
+
+    &__img {
+      padding-top: 80px;
+      @include d(1200) {
+        padding-top: 40px;
+      }
+      @include d(768) {
+        padding-top: 0;
+      }
+    }
+  }
+}

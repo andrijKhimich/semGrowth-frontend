@@ -485,6 +485,16 @@ textarea {
     bottom: 0%;
     right: 20%;
   }
+
+  &._12 {
+    top: 15%;
+    left: 20%;
+  }
+
+  &._13 {
+    bottom: 15%;
+    left: 25%;
+  }
 }
 
 .underline {
@@ -547,4 +557,8 @@ blockquote,
   &:hover {
     fill: $pink;
   }
+}
+
+.bg-gray {
+  background-color: $grayLight;
 }

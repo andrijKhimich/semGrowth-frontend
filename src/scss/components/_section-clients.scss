@@ -4,11 +4,11 @@
   @include d(1500) {
     padding: 120px 0;
   }
-  
+
   @include d(1200) {
     padding: 80px 0;
   }
-    
+
   @include d(992) {
     padding: 60px 0;
   }
@@ -30,10 +30,12 @@
     @include d(1200) {
       font-size: 28px;
     }
+
     @include d(992) {
       font-size: 20px;
       padding: 30px 0 40px 0;
     }
+
     span {
       text-decoration: underline;
     }
@@ -57,12 +59,14 @@
     &__item {
       max-width: 20%;
       padding: 20px;
+
       img {
         @include d(575) {
           width: auto;
           margin: 0 auto;
         }
       }
+
       @include d(992) {
         padding: 10px;
       }
@@ -72,6 +76,19 @@
         flex: 0 0 160px;
         margin-bottom: 20px;
       }
+    }
+  }
+
+  &-text {
+    font-size: 22px;
+    font-weight: 500;
+
+    @include d(1200) {
+      font-size: 18px;
+    }
+
+    @include d(992) {
+      font-size: 16px;
     }
   }
 }
