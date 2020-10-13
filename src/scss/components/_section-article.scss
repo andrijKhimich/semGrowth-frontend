@@ -23,28 +23,6 @@
         }
       }
     }
-  }
-
-  &__img {
-    max-width: 400px;
-    margin: 0 auto;
-
-    @include d(768) {
-      max-width: 320px;
-      margin: 0 auto 40px auto;
-    }
-  }
-
-  &__content {
-    position: relative;
-    top: 50%;
-    transform: translate(0, -50%);
-
-    @include d(768) {
-      position: static;
-      top: 0;
-      transform: translate(0, 0);
-    }
 
     .title-2,
     & h2 {
@@ -86,5 +64,38 @@
         }
       }
     }
+  }
+  &__list {
+    ul {
+      margin-top: 0;
+      @include d(768) {
+        margin-top: 20px;
+      }
+    }
+  }
+  &__img {
+    max-width: 400px;
+    margin: 0 auto;
+
+    @include d(768) {
+      max-width: 320px;
+      margin: 0 auto 40px auto;
+    }
+  }
+
+  &__content {
+    position: relative;
+    top: 50%;
+    transform: translate(0, -50%);
+
+    @include d(768) {
+      position: static;
+      top: 0;
+      transform: translate(0, 0);
+    }
+
+
+
+
   }
 }
