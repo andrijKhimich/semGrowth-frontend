@@ -102,9 +102,9 @@ gulp.task('images', function () {
   return gulp
     .src('src/img/**/*')
     // Caching images that ran through imagemin
-    // .pipe(cache(imagemin({
-    //   interlaced: true
-    // })))
+    .pipe(cache(imagemin({
+      interlaced: true
+    })))
     .pipe(gulp.dest('dist/img'))
     .pipe(
       browserSync.reload({
