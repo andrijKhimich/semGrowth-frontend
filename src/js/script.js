@@ -201,6 +201,9 @@ $(document).ready(function () {
     const scrollValue = $(this).scrollTop();
     showOnScroll(scrollValue);
     // scrollValue >= 1 ? closeMenu() : null;
+    if (humburger.classList.contains("open") && scrollValue >= 1) {
+			closeMenu();
+		}
   });
 });
 

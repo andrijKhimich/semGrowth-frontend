@@ -1,16 +1,16 @@
 .section-firm {
-  padding: 20px 0 100px;
+  padding: 100px 0;
 
   @include d(1500) {
-    padding: 20px 0 80px;
+    padding: 80px 0;
   }
 
   @include d(1200) {
-    padding: 20px 0 60px;
+    padding: 60px 0;
   }
 
   @include d(992) {
-    padding: 20px 0 40px;
+    padding: 40px 0;
   }
 
   .title-2,

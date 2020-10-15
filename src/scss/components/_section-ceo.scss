@@ -23,6 +23,10 @@
 
   &__title {
     margin-bottom: 40px;
+    max-width: 100px;
+    img {
+      margin-bottom: 30px;
+    }
   }
 
   &-logo {

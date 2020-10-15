@@ -60,6 +60,10 @@ h1 {
     background: linear-gradient(90deg, #006290 50%, #6be9fe 100%, #8aa9d6);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    -webkit-mask-image: linear-gradient(90deg, #006290 50%, #6be9fe 100%, #8aa9d6);
+    padding: 1px;
   }
 
   @include d(1199) {
@@ -434,6 +438,9 @@ textarea {
   &._1 {
     bottom: 15%;
     left: -100px;
+    @include d(768) {
+      bottom: -65%;
+    }
   }
 
   &._2 {

@@ -1,0 +1,404 @@
+.section-blog-title {
+  padding-top: 141px;
+
+  @include d(1500) {
+    padding-top: 87px;
+  }
+
+  @include d(768) {
+    padding-top: 67px;
+  }
+}
+
+.blog {
+  &-title {
+    padding: 100px 0;
+
+    @include d(768) {
+      padding: 60px 0;
+    }
+  }
+
+  &-pannel {
+    &__row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid $borderColor;
+      border-bottom: 1px solid $borderColor;
+
+      @include d(768) {
+        flex-wrap: wrap;
+        border: none;
+      }
+    }
+  }
+
+  &-search {
+    max-width: 330px;
+    width: 100%;
+
+    @include d(1500) {
+      max-width: 230px;
+    }
+
+    @include d(1200) {
+      max-width: 180px;
+    }
+
+    &__box {
+      position: relative;
+      display: flex;
+      align-items: center;
+
+      input {
+        width: 100%;
+        background-color: transparent;
+      }
+    }
+
+    &__btn {
+      border: none;
+      background-color: transparent;
+      background-repeat: no-repeat;
+      background-image: url(../img/svg/search-icon.svg);
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+      flex: 0 0 20px;
+      padding: 0;
+    }
+  }
+
+  &-filter {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 45px 15px 45px 100px;
+    border-left: 1px solid $borderColor;
+
+    @include d(1500) {
+      padding: 30px 15px 30px 50px;
+    }
+
+    @include d(1200) {
+      padding: 20px 15px 20px 30px;
+    }
+
+    @include d(768) {
+      order: 2;
+      flex: 0 0 100%;
+      border: none;
+      padding: 15px 0 0 0;
+      margin-top: 15px;
+      border-top: 1px solid $borderColor;
+    }
+
+    &__item {
+      &:not(:last-child) {
+        margin-right: 40px;
+
+        @include d(1500) {
+          margin-right: 30px;
+        }
+      }
+
+      &.active {
+        color: $primary;
+      }
+    }
+  }
+
+  &-sort {
+    &__box {
+      position: relative;
+      padding-right: 20px;
+
+      &::before {
+        content: "";
+        width: 16px;
+        height: 16px;
+        background-image: url(../img/svg/arrow-down.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        right: 0;
+        pointer-events: none;
+      }
+
+      select {
+        border: none;
+        width: 120px;
+        padding: 10px;
+        margin-right: -20px;
+        background-color: transparent;
+      }
+    }
+  }
+
+  &-content {
+    padding: 100px 0 80px 0;
+
+    @include d(1500) {
+      padding: 80px 0 140px 0;
+    }
+
+    @include d(1200) {
+      padding: 60px 0 0 0;
+    }
+
+    @include d(992) {
+      padding: 40px 0 0 0;
+    }
+  }
+
+  &-wrapper {
+    margin: 0 -55px;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+
+    @include d(1200) {
+      margin: 0 -30px;
+    }
+
+    @include d(992) {
+      margin: 0 -15px;
+    }
+
+    @include d(575) {
+      margin: 0;
+    }
+
+    &__col {
+      padding: 0 55px;
+      flex: 0 0 50%;
+      margin-bottom: 120px;
+
+      @include d(1200) {
+        padding: 0 30px;
+        margin-bottom: 40px;
+      }
+
+      @include d(992) {
+        padding: 0 20px;
+        margin-bottom: 30px;
+      }
+
+      @include d(575) {
+        padding: 0;
+        flex: 0 0 100%;
+      }
+
+      &:nth-child(3n) {
+        flex: 0 0 100%;
+
+        .blog-preview__content {
+          position: absolute;
+          bottom: 80px;
+          left: 80px;
+
+          @include d(575) {
+            position: static;
+          }
+
+          .tag {
+            color: $white;
+
+            @include d(575) {
+              color: $primary;
+            }
+          }
+
+          .title-2 {
+            color: $white;
+
+            @include d(575) {
+              color: $textColor;
+            }
+          }
+        }
+
+        .blog-preview__text {
+          display: none;
+
+          @include d(575) {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
+  &-preview {
+    position: relative;
+
+    @include d(575) {
+      margin-bottom: 20px;
+    }
+
+    &:hover {
+      .blog-preview__img {
+        img {
+          transform: scale(1.2);
+        }
+      }
+    }
+
+    &__img {
+      margin-bottom: 20px;
+      overflow: hidden;
+
+      @include d(575) {
+        margin-bottom: 10px;
+      }
+
+      img {
+        object-fit: cover;
+        height: 100%;
+        position: relative;
+        transform: scale(1);
+        transition: transform 20s linear;
+      }
+    }
+
+    .title-2,
+    & h2 {
+      margin: 10px 0;
+      font-weight: 600;
+    }
+  }
+
+}
+
+.tag-list {
+  padding: 10px 0;
+}
+
+.tag {
+  position: relative;
+  color: $primary;
+  font-size: 14px;
+  line-height: 1em;
+  padding-left: 8px;
+
+  &::before {
+    content: "#";
+    position: absolute;
+    top: 2px;
+    left: 0;
+  }
+
+  &:not(:last-child) {
+    margin-right: 5px;
+
+    &::after {
+      content: ",";
+      position: absolute;
+      bottom: 0px;
+      right: -4px;
+    }
+  }
+}
+
+.article {
+
+  &-wrapper {
+    position: relative;
+    margin: 60px 0;
+
+  }
+
+  &__content {
+    max-width: 970px;
+    margin: 0 auto;
+  }
+
+  &-date {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 14px;
+    font-weight: 500;
+
+    @include d(1500) {
+      top: -40px;
+    }
+  }
+
+  .title-4,
+  & h4 {
+    margin: 30px 0;
+  }
+
+  p {
+    margin-bottom: 30px;
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 970px;
+    margin: 20px auto 80px;
+
+    .social-list__link {
+      &:hover {
+        .social-icon {
+          fill: $pink;
+        }
+      }
+
+      .social-icon {
+        fill: $black;
+      }
+    }
+  }
+
+  &-nav {
+    font-size: 24px;
+    font-weight: 500;
+
+    display: flex;
+    align-items: center;
+    transition: color $hover-duration $timing;
+
+    @include d(1500) {
+      font-size: 22px;
+    }
+
+    @include d(1200) {
+      font-size: 20px;
+    }
+
+    @include d(992) {
+      font-size: 18px;
+    }
+
+    &:hover {
+      color: $pink;
+
+      .arrow-icon {
+        fill: $pink;
+      }
+    }
+
+    .arrow-icon {
+      margin-left: 20px;
+
+      @include d(1200) {
+        margin-left: 10px;
+        max-width: 30px;
+      }
+    }
+  }
+
+  &-other {
+    .title-2 {
+      margin-bottom: 40px;
+    }
+  }
+}
