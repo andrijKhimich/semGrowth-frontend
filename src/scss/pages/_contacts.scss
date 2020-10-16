@@ -1,0 +1,14 @@
+.contacts-page {
+  .section-contact {
+
+    @include d(1200) {
+      padding-top: 160px;
+    }
+       @include d(768) {
+      padding-top: 100px;
+    }
+    .contact__content {
+      max-width: 500px;
+    }
+  }
+}

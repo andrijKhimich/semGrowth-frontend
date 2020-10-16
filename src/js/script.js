@@ -6,7 +6,10 @@ const humburger = document.querySelector(".humburger");
 const ctaWords = document.querySelector("#ctaWords");
 const headerWords = document.querySelector(".js-header-words");
 const sliderNav = document.querySelector(".testimonials-slider__nav");
-
+const subItem = document.querySelector('nav-list li');
+const subList = document.querySelector(".sublist");
+let windowWidth = window.innerWidth;
+// console.log(windowWidth);
 //  console.log(sliderNav.length);
 // function to move bg ellipses
 function parallax(e) {
@@ -135,7 +138,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
   }, 1000);
 
   humburger.addEventListener("click", function () {
-    // nav.classList.toggle("open");
     if (this.classList.contains("open")) {
       closeMenu();
     } else {
@@ -143,6 +145,45 @@ document.addEventListener("DOMContentLoaded", function (e) {
     }
   });
 
+  if (windowWidth <= 768) {
+    subItem.addEventListener("click", () => {
+      /** Slide down. */
+      if (!subList.classList.contains("active")) {
+				/** Show the container. */
+				subList.classList.add("active");
+				subList.style.height = "auto";
+
+				/** Get the computed height of the container. */
+				var height = subList.clientHeight + "px";
+
+				/** Set the height of the content as 0px, */
+				/** so we can trigger the slide down animation. */
+				subList.style.height = "0px";
+
+				/** Do this after the 0px has applied. */
+				/** It's like a delay or something. MAGIC! */
+				setTimeout(() => {
+					subList.style.height = height;
+				}, 0);
+
+				/** Slide up. */
+			} else {
+				/** Set the height as 0px to trigger the slide up animation. */
+				subList.style.height = "0px";
+
+				/** Remove the `active` class when the animation ends. */
+				subList.addEventListener(
+					"transitionend",
+					() => {
+						subList.classList.remove("active");
+					},
+					{
+						once: true,
+					}
+				);
+			}
+    });
+  }
   circularWords(ctaWords);
 
   circularWords(headerWords);
@@ -202,11 +243,12 @@ $(document).ready(function () {
     showOnScroll(scrollValue);
     // scrollValue >= 1 ? closeMenu() : null;
     if (humburger.classList.contains("open") && scrollValue >= 1) {
-			closeMenu();
-		}
+      closeMenu();
+    }
   });
 });
 
+// jquery functions
 function showOnScroll(scrollValue) {
   $(".js-scroll").each(function () {
     let elem = $(this);
