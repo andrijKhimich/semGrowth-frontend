@@ -149,39 +149,38 @@ document.addEventListener("DOMContentLoaded", function (e) {
     subItem.addEventListener("click", () => {
       /** Slide down. */
       if (!subList.classList.contains("active")) {
-				/** Show the container. */
-				subList.classList.add("active");
-				subList.style.height = "auto";
+        /** Show the container. */
+        subList.classList.add("active");
+        subList.style.height = "auto";
 
-				/** Get the computed height of the container. */
-				var height = subList.clientHeight + "px";
+        /** Get the computed height of the container. */
+        var height = subList.clientHeight + "px";
 
-				/** Set the height of the content as 0px, */
-				/** so we can trigger the slide down animation. */
-				subList.style.height = "0px";
+        /** Set the height of the content as 0px, */
+        /** so we can trigger the slide down animation. */
+        subList.style.height = "0px";
 
-				/** Do this after the 0px has applied. */
-				/** It's like a delay or something. MAGIC! */
-				setTimeout(() => {
-					subList.style.height = height;
-				}, 0);
+        /** Do this after the 0px has applied. */
+        /** It's like a delay or something. MAGIC! */
+        setTimeout(() => {
+          subList.style.height = height;
+        }, 0);
 
-				/** Slide up. */
-			} else {
-				/** Set the height as 0px to trigger the slide up animation. */
-				subList.style.height = "0px";
+        /** Slide up. */
+      } else {
+        /** Set the height as 0px to trigger the slide up animation. */
+        subList.style.height = "0px";
 
-				/** Remove the `active` class when the animation ends. */
-				subList.addEventListener(
-					"transitionend",
-					() => {
-						subList.classList.remove("active");
-					},
-					{
-						once: true,
-					}
-				);
-			}
+        /** Remove the `active` class when the animation ends. */
+        subList.addEventListener(
+          "transitionend",
+          () => {
+            subList.classList.remove("active");
+          }, {
+            once: true,
+          }
+        );
+      }
     });
   }
   circularWords(ctaWords);
@@ -192,29 +191,29 @@ document.addEventListener("DOMContentLoaded", function (e) {
     // Exists.
     setSliderNavPosition();
   }
-  $(".testimonials-slider").slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: false,
-    dots: false,
-    arrows: true,
-    infinite: true,
-    fade: true,
-    adaptiveHeight: true,
-    prevArrow: $(".arrow-btn_prev"),
-    nextArrow: $(".arrow-btn_next"),
-    infinite: false,
-    responsive: [{
-      breakpoint: 769,
-      settings: {
-        fade: false,
-        adaptiveHeight: false,
-        arrows: false,
-      },
-    }, ],
-  });
-});
 
+});
+$(".testimonials-slider").slick({
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  autoplay: false,
+  dots: false,
+  arrows: true,
+  infinite: true,
+  fade: true,
+  adaptiveHeight: true,
+  prevArrow: $(".arrow-btn_prev"),
+  nextArrow: $(".arrow-btn_next"),
+  infinite: false,
+  responsive: [{
+    breakpoint: 769,
+    settings: {
+      fade: false,
+      adaptiveHeight: false,
+      arrows: false,
+    },
+  }, ],
+});
 window.addEventListener("resize", function (event) {
   if (typeof sliderNav != "undefined" && sliderNav != null) {
     // Exists.

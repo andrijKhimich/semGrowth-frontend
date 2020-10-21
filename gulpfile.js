@@ -163,7 +163,7 @@ gulp.task('watch', function () {
 gulp.task('clear', function () {
   return cache.clearAll();
 });
-gulp.task('removeBuild', function () {
+gulp.task('removebuild', function () {
   return del('dist');
 });
 gulp.task('default', gulp.parallel('watch', 'html', 'sass', 'js', 'fonts', 'images', 'files', 'svgSprite', 'browser-sync'));
