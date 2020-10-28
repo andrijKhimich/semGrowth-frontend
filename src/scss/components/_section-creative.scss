@@ -1,0 +1,66 @@
+.section-creative {
+  padding: 60px 0;
+  position: relative;
+  z-index: 10;
+}
+
+.creative {
+
+  &__content {
+    background-color: $bgBlue;
+    padding: 160px 100px 160px 0;
+    position: relative;
+    @include d(992) {
+      padding: 100px 40px 100px 0;
+    }
+    @include d(768) {
+      padding: 40px 0;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 100%;
+      background-color: $bgBlue;
+      width: 20%;
+      height: 100%;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 100%;
+      background-color: $bgBlue;
+      width: 20%;
+      height: 100%;
+      display: none;
+      @include d(768) {
+        display: block;
+      }
+    }
+    p {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__img {
+    position: absolute;
+    top: 0;
+    left: calc(100% - 15px);
+    height: 100%;
+    width: 120%;
+    overflow: hidden;
+
+    @include d(768) {
+      position: static;
+      left: 0;
+      width: 100%;
+      height: auto;
+      margin: 0 auto;
+    }
+    img {
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
