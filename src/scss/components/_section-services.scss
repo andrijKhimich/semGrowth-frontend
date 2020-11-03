@@ -43,6 +43,7 @@
 
     @include d(992) {
       margin-bottom: 50px;
+
       @include d(768) {
         margin-bottom: 30px;
       }
@@ -52,10 +53,15 @@
 
   &-item {
     max-width: 405px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     @include d(768) {
       margin-bottom: 40px;
       max-width: 100%;
+      display: block;
     }
 
     &__header {
@@ -73,7 +79,7 @@
 
     .btn {
       margin-top: 30px;
-
+      max-width: 164px;
       @include d(768) {
         margin-top: 20px;
       }

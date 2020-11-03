@@ -239,7 +239,8 @@ $(document).ready(function () {
 
   $(window).scroll(function () {
     const scrollValue = $(this).scrollTop();
-    showOnScroll(scrollValue);
+    // showOnScroll(scrollValue);
+    startAnimation();
     // scrollValue >= 1 ? closeMenu() : null;
     if (humburger.classList.contains("open") && scrollValue >= 1) {
       closeMenu();
@@ -248,13 +249,27 @@ $(document).ready(function () {
 });
 
 // jquery functions
-function showOnScroll(scrollValue) {
-  $(".js-scroll").each(function () {
-    let elem = $(this);
-    let sectionPos = elem.offset().top;
-    let windowPos = $(window).scrollTop() + $(window).height() / 1.2;
+// function showOnScroll(scrollValue) {
+//   $(".js-scroll").each(function () {
+//     let elem = $(this);
+//     let sectionPos = elem.offset().top;
+//     let windowPos = $(window).scrollTop() + $(window).height() / 1.2;
+//     if (sectionPos < windowPos) {
+//       elem.removeClass("js-fadeIn js-slideLeft js-slideRight js-slideTop");
+//     }
+//   });
+// }
+
+
+function startAnimation() {
+  $('.js-scroll').each(function () {
+    var sectionPos = $(this).offset().top;
+    var windowPos = $(window).scrollTop() + $(window).height() / 1.2;
     if (sectionPos < windowPos) {
-      elem.removeClass("js-fadeIn js-slideLeft js-slideRight js-slideTop");
+      $(this).removeClass('js-slideTop');
+      $(this).removeClass('js-slideDown');
+      $(this).removeClass('js-slideRight');
+      $(this).removeClass('js-fadeIn');
     }
   });
 }
@@ -262,6 +277,7 @@ function showOnScroll(scrollValue) {
 function initPartnersSlider() {
   let slider = $(".investments-list");
   $(window).on("load resize", function () {
+    startAnimation();
     if ($(window).width() > 992 && $(".investments-list").length > 0) {
       if (slider.hasClass("slick-initialized")) {
         slider.slick("unslick");
