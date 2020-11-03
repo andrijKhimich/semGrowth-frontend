@@ -270,6 +270,7 @@ function startAnimation() {
       $(this).removeClass('js-slideDown');
       $(this).removeClass('js-slideRight');
       $(this).removeClass('js-fadeIn');
+           $(this).removeClass('js-slideLeft');
     }
   });
 }
