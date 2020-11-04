@@ -14,7 +14,7 @@
 
   &-row {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     padding: 60px 0 47px;
     border-bottom: 1px solid $grayLighter;
@@ -26,6 +26,31 @@
     @include d(992) {
       padding: 20px 0 25px;
     }
+
+    .nav-list {
+      align-items: flex-start;
+
+      &>li {
+        &>a {
+          padding: 0;
+          margin-bottom: 10px;
+          &::before,
+          &::after {
+            display: none;
+          }
+        }
+
+        ul li {
+          margin-bottom: 5px;
+          transition: color $hover-duration $timing;
+
+          &:hover {
+            color: $pink;
+          }
+        }
+      }
+    }
+
   }
 
   &-copyright {
