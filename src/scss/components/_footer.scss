@@ -31,6 +31,9 @@
       align-items: flex-start;
 
       &>li {
+        &:not(:last-child) {
+          margin-right: 30px;
+        }
         &>a {
           padding: 0;
           margin-bottom: 10px;
