@@ -239,27 +239,12 @@ $(document).ready(function () {
 
   $(window).scroll(function () {
     const scrollValue = $(this).scrollTop();
-    // showOnScroll(scrollValue);
     startAnimation();
-    // scrollValue >= 1 ? closeMenu() : null;
     if (humburger.classList.contains("open") && scrollValue >= 1) {
       closeMenu();
     }
   });
 });
-
-// jquery functions
-// function showOnScroll(scrollValue) {
-//   $(".js-scroll").each(function () {
-//     let elem = $(this);
-//     let sectionPos = elem.offset().top;
-//     let windowPos = $(window).scrollTop() + $(window).height() / 1.2;
-//     if (sectionPos < windowPos) {
-//       elem.removeClass("js-fadeIn js-slideLeft js-slideRight js-slideTop");
-//     }
-//   });
-// }
-
 
 function startAnimation() {
   $('.js-scroll').each(function () {
